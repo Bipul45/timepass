@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Do You Love Me ❤️</title>
+
+<style>
+body {
+    margin: 0;
+    padding: 0;
+    background: white;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    overflow: hidden;
+}
+
+/* Main container */
+.container {
+    margin-top: 80px;
+}
+
+/* Question text */
+h1 {
+    font-size: 35px;
+    color: red;
+    text-shadow: 2px 2px 5px #ff0000;
+}
+
+/* Buttons */
+button {
+    padding: 12px 25px;
+    font-size: 18px;
+    border: none;
+    border-radius: 20px;
+    margin: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#yes {
+    background: pink;
+}
+
+#no {
+    background: lightgray;
+    position: absolute;
+}
+
+/* Heart animation */
+.heart {
+    font-size: 120px;
+    position: absolute;
+    top: 40%;
+    left: 45%;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg) scale(1); }
+    50% { transform: rotate(180deg) scale(1.3); }
+    100% { transform: rotate(360deg) scale(1); }
+}
+
+/* Final message */
+.final {
+    margin-top: 50px;
+    font-size: 30px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container" id="main">
+    
+    <!-- Bear GIF (tum apna link dal dena) -->
+    <img src="https://media.giphy.com/media/3oriO0OEd9QIDdllqo/giphy.gif" width="200">
+
+    <h1>Do you love me? ❤️</h1>
+
+    <button id="yes">Yes</button>
+    <button id="no">No</button>
+
+</div>
+
+<script>
+
+const noBtn = document.getElementById("no");
+const yesBtn = document.getElementById("yes");
+
+/* NO button bhaagega 😏 */
+noBtn.addEventListener("mouseover", () => {
+    let x = Math.random() * window.innerWidth;
+    let y = Math.random() * window.innerHeight;
+
+    noBtn.style.left = x + "px";
+    noBtn.style.top = y + "px";
+});
+
+/* YES click pe animation ❤️ */
+yesBtn.addEventListener("click", () => {
+
+    document.body.innerHTML = `
+        <div class="heart">❤️</div>
+    `;
+
+    setTimeout(() => {
+        document.body.innerHTML = `
+            <div style="text-align:center; margin-top:100px;">
+                <img src="https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif" width="200">
+                <div class="final">I knew it 😍❤️</div>
+            </div>
+        `;
+    }, 2000);
+
+});
+
+</script>
+
+</body>
+</html>
